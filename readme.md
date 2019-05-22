@@ -1,8 +1,8 @@
 # Rebylon
 
-## Reactive programming library designed to use with BabylonJs
+Reactive programming library designed to use with BabylonJs
 
-### Effects
+## Effects
 
 ```typescript
 // Effect is just a function withouth arguments
@@ -13,7 +13,7 @@ const e2: Effect = noop; // Do nothing
 const e3: Effect = composeEffects(e1, e2);
 ```
 
-### Parameters
+## Parameters
 
 ```typescript
 // Parameter declaration
@@ -46,7 +46,7 @@ const updateFields: Effect = write(myObject, {
 });
 ```
 
-### Components
+## Components
 
 Component is just an object with `update` and `dispose` effects.
 Minimal component is `{ update: noop, dispose: noop }`.
@@ -95,7 +95,7 @@ const cached: Component = cache(time, items)((time, items) => {
 });
 ```
 
-### Animations
+## Animations
 
 ```typescript
 // Animated component example
