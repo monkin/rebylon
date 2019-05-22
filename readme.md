@@ -9,7 +9,7 @@ Reactive programming library designed to use with BabylonJs
 const e1: Effect = () => console.log("test");
 const e2: Effect = noop; // Do nothing
 
-// Combine effects. In this case will return e1, because e2 is noop
+// Combine effects. In this case `composeEffects` will return e1, because e2 is noop
 const e3: Effect = composeEffects(e1, e2);
 ```
 
