@@ -4,7 +4,7 @@
         "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
-        "sourceMap": true,
+        "inlineSourceMap": true,
         "declaration": true,
         "sourceRoot": "src",
         "outDir": "dist"
