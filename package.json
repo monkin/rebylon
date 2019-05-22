@@ -1,0 +1,17 @@
+{
+    "name": "rebylon",
+    "version": "1.0.0",
+    "author": {
+        "name": "Andrei Monkin",
+        "email": "monkin.andrey@gmail.com"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "devDependencies": {
+        "typescript": "3.4.5"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepublish": "tsc"
+    }
+}
