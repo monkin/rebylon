@@ -5,6 +5,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "inlineSourceMap": true,
+        "inlineSources": true,
         "declaration": true,
         "sourceRoot": "src",
         "outDir": "dist"
