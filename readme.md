@@ -101,12 +101,12 @@ const cached: Component = cache(time, items)((time, items) => {
 // Animated component example
 interface AnimatedComponentProps {
     time: Param<number>;
-    position: "left" | "right";
+    position: Param<"left" | "right">;
 }
 
 function animatedComponent(scene, { time, position }: AnimatedComponentProps): Component {
-    const x = map(position)(p => p === "left" ? -1 : 1);
-    const animatedX = numberTransition({
+    const x: Param<number> = map(position)(p => p === "left" ? -1 : 1);
+    const animatedX: Param<number> = numberTransition({
         time: time,
         value: x,
         duration: 300,
@@ -119,7 +119,7 @@ function animatedComponent(scene, { time, position }: AnimatedComponentProps): C
 
 // Create custom transition
 export const vector3Transition = createTransition<Vector3>({
-    equals: (a, b) => a.equals(b), // objects compare function
-    mix: (a, b, t) => a.scale(1 - t).add(b.scale(t)), // objects mix function
+    equals: (a: Vector3, b: Vector3) => a.equals(b), // objects compare function
+    mix: (a: Vector3, b: Vector3, t: number) => a.scale(1 - t).add(b.scale(t)), // objects mix function
 });
 ```
