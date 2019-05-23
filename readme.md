@@ -1,6 +1,6 @@
 # Rebylon
 
-Reactive programming library designed to use with BabylonJs
+Reactive programming library designed to use with BabylonJS
 
 ## Effects
 
