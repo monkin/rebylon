@@ -4,10 +4,11 @@
         "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
-        "inlineSourceMap": true,
-        "inlineSources": true,
+        "sourceMap": true,
         "declaration": true,
-        "sourceRoot": "src",
         "outDir": "dist"
-    }
+    },
+    "include": [
+        "src/*.ts"
+    ]
 }
