@@ -26,7 +26,7 @@ export function isValue<T>(v: Param<T>): v is T {
  * Is variable parameter
  */
 export function isMapping<T>(v: Param<T>): v is () => T {
-    return !(v instanceof Function);
+    return (v instanceof Function);
 }
 
 /**

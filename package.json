@@ -1,6 +1,6 @@
 {
     "name": "rebylon",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": {
         "name": "Andrei Monkin",
         "email": "monkin.andrey@gmail.com"
@@ -8,10 +8,14 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "devDependencies": {
+        "@types/jest": "24.0.13",
+        "jest": "24.8.0",
+        "ts-jest": "24.0.2",
         "typescript": "3.4.5"
     },
     "scripts": {
         "build": "tsc",
-        "prepublish": "tsc"
+        "prepublish": "tsc && jest",
+        "test": "jest"
     }
 }
