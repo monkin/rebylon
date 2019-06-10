@@ -95,6 +95,14 @@ const cached: Component = cache(time, items)((time, items) => {
 });
 ```
 
+## Stateful components
+
+```typescript
+const statefulComponent = state(0, (counter, setCounter) => {
+    return // Return your component with state here
+})
+```
+
 ## Animations
 
 ```typescript
