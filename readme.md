@@ -95,6 +95,18 @@ const cached: Component = cache(time, items)((time, items) => {
 });
 ```
 
+## Component hooks
+
+If you need to do something before/after update/dispose component, there are some hook functions.
+You can use `beforeUpdate`, `afterUpdate`, `beforeDispose`, and `afterDispose` functions.
+
+```typescript
+const componentWithHook = beforeUpdate(createMyComponent(), () => {
+    console.log("It runs before update");
+})
+```
+
+
 ## Stateful components
 
 ```typescript
