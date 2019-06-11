@@ -20,10 +20,13 @@ export function optional(flag: Param<boolean>, createComponent: () => Component)
         }
     });
 
-    return group(updater, {
-        update: () => component && component.update(),
-        dispose: () => component && component.dispose(),
-    });
+    return {
+        update: () => {
+            updater.update();
+            component && component.update();
+        },
+        dispose: updater.dispose
+    };
 }
 
 export function list<T>(items: Param<T[]>, key: (v: T, i: number) => string | number, createComponent: (item: Param<T>) => Component): Component {

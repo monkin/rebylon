@@ -106,7 +106,6 @@ const componentWithHook = beforeUpdate(createMyComponent(), () => {
 })
 ```
 
-
 ## Stateful components
 
 ```typescript
