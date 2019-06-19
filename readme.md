@@ -76,7 +76,7 @@ const someList: Param<number[]> = () => [1, 2, 3];
 const many: Component = list(
     someList, // array parameter
     (value: number) => value, // key computation function (similar to React's key attribute)
-    (value: number) => createMyComponent(scene, value) // function to create a component from the list item
+    (value: Param<number>) => createMyComponent(scene, value) // function to create a component from the list item
 );
 
 // Cache havy calculations or parametrs that can change during updating
