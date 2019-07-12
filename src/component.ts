@@ -1,5 +1,5 @@
 import { Effect, composeEffects } from "./effects";
-import { Param, stream, changes, isValue } from "./param";
+import { Param, stream, changes, isValue, UnwrapList, unwrap } from "./param";
 
 export interface Component {
     update: Effect;
@@ -84,4 +84,35 @@ export function cache<P extends Param<any>[]>(...input: P) {
             dispose: child.dispose,
         };
     };
+}
+
+/**
+ * Recreate component on parameters change
+ */
+export function cmap<P extends Param<any>[]>(...input: P) {
+    if (input.every(isValue)) {
+        return (create: (...input: UnwrapList<P>) => Component) => {
+            return create(...input as any);
+        };
+    } else {
+        return (create: (...input: UnwrapList<P>) => Component): Component => {
+            let values: any[] = input.map(unwrap);
+            let component = create(...values as any);
+            return {
+                update: () => {
+                    const newValues = input.map(unwrap);
+                    if (newValues.every((v, i) => v === values[i])) {
+                        component.update();
+                    } else {
+                        component.dispose();
+                        values = newValues;
+                        component = create(...values as any);
+                    }
+                },
+                dispose: () => {
+                    component.dispose();
+                }
+            };
+        }
+    }
 }
