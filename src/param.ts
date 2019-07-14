@@ -6,8 +6,8 @@ import { Component } from "./component";
  */
 export type Param<T> = (() => T) | T;
 
-type Unwrap<T> = T extends () => infer R ? R : T;
-type UnwrapList<T extends Param<any>[]> =
+export type Unwrap<T> = T extends () => infer R ? R : T;
+export type UnwrapList<T extends Param<any>[]> =
     T extends [any, any, any, any, any, any] ? [Unwrap<T[0]>, Unwrap<T[1]>, Unwrap<T[2]>, Unwrap<T[3]>, Unwrap<T[4]>, Unwrap<T[5]>] :
     T extends [any, any, any, any, any] ? [Unwrap<T[0]>, Unwrap<T[1]>, Unwrap<T[2]>, Unwrap<T[3]>, Unwrap<T[4]>] :
     T extends [any, any, any, any] ? [Unwrap<T[0]>, Unwrap<T[1]>, Unwrap<T[2]>, Unwrap<T[3]>] :
