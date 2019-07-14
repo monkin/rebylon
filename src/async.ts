@@ -1,7 +1,7 @@
 import { Component } from "./component";
 import { noop } from "./effects";
 
-export function asyncComponent(component: Promise<Component>): Component {
+export function asyncComponent(component: PromiseLike<Component>): Component {
     let disposed = false,
         update = noop,
         dispose = () => {
@@ -23,7 +23,7 @@ export function asyncComponent(component: Promise<Component>): Component {
     };
 }
 
-export function asyncContrucor<PropsType extends any[]>(constructor: (...props: PropsType) => Promise<Component>) {
+export function asyncContrucor<PropsType extends any[]>(constructor: (...props: PropsType) => PromiseLike<Component>) {
     return (...props: PropsType): Component => {
         return asyncComponent(constructor(...props));
     };
