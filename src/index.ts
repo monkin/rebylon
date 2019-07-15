@@ -5,3 +5,4 @@ export * from "./transition";
 export * from "./state";
 export * from "./hooks";
 export * from "./async";
+export * from "./immediate";
